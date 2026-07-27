@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abismo — Paulina Walz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .project-header {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 40px;
+      margin-bottom: 56px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 40px;
+    }
+    .project-header h1 {
+      font-size: 64px;
+      line-height: 1;
+      letter-spacing: -.02em;
+    }
+    .project-meta {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    .meta-item .label {
+      font-size: 11px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .meta-item .val {
+      font-size: 13.5px;
+      opacity: .85;
+    }
+
+    .project-intro {
+      position: relative;
+      z-index: 2;
+      width: 800px;
+      margin-bottom: 72px;
+    }
+    .project-intro p {
+      font-size: 18px;
+      line-height: 1.6;
+      font-weight: 400;
+      opacity: .9;
+      color: var(--ink);
+    }
+
+    .project-gallery {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 56px;
+      margin-bottom: 80px;
+    }
+
+    .img-row-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .img-row-2 .frame {
+      height: 480px;
+    }
+
+    .img-full .frame {
+      height: 600px;
+      width: 100%;
+    }
+
+    .img-row-aside {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 24px;
+    }
+    .img-row-aside .frame-large {
+      height: 520px;
+    }
+    .img-row-aside .frame-small {
+      height: 520px;
+    }
+
+    .photo-caption {
+      font-size: 11px;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      opacity: .5;
+      margin-top: 10px;
+    }
+
+    .project-footer-nav {
+      position: relative;
+      z-index: 2;
+      border-top: 1px solid var(--ink);
+      padding-top: 40px;
+      margin-top: 80px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .next-project-link {
+      text-align: right;
+    }
+    .next-project-link .label {
+      font-size: 11px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      opacity: .5;
+      margin-bottom: 4px;
+    }
+    .next-project-link h3 {
+      font-size: 28px;
+      transition: color 0.25s ease;
+    }
+    .next-project-link:hover h3 {
+      color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page">
+    <div class="gridlines"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+
+    <nav class="nav-strip">
+      <div class="brand">PAULINA WALZ</div>
+      <div class="links">
+        <a href="index.html">HOME</a>
+         <a href="index.html#work" class="back-link">WORK</a> 
+        <a href="about.html">ABOUT</a>
+      </div>
+    <a class="contact-pill" href="mailto:walzpaulina5@gmail.com">
+  CONTACT ↗
+</a>
+    </nav>
+
+
+    <header class="project-header">
+      <h1>abismo</h1>
+      <div class="project-meta">
+        <div class="meta-item">
+          <div class="label">Proyect</div>
+          <div class="val">Fashion Design</div>
+        </div>
+        <div class="meta-item">
+          <div class="label">Year</div>
+          <div class="val">2026</div>
+        </div>
+        <div class="meta-item">
+          <div class="label">Client</div>
+          <div class="val">University Project</div>
+        </div>
+        <div class="meta-item">
+          <div class="label">Areas</div>
+          <div class="val">Fashion Design · Material Research · Art Direction</div>
+        </div>
+      </div>
+    </header>
+
+    
+    <section class="project-intro">
+      <p>ABISMO is a conceptual fashion project inspired by the phenomenon of bioluminescence found in deep-sea organisms. Through the use of fluorescent biomaterials and organic silhouettes, the collection explores themes of transformation, communication, and female empowerment. The project translates natural processes into a contemporary visual language that connects science, material experimentation, and fashion design.</p>
+    </section>
+
+    
+    <section class="project-gallery">
+      
+     
+      <div class="img-full">
+       
+       <img class="ph-photo frame" src="imagenes/DSCN5646.jpg" alt="Abismo">
+        <div class="photo-caption">01 / Editorial Campaign</div>
+      </div>
+
+      <div class="img-row-2">
+        <div>
+         
+         <img class="ph-photo frame" src="imagenes/abismoimagendemarca.png" alt="Abismo">
+          <div class="photo-caption">02 — Concept Development - identidad y concepto</div>
+        </div>
+        <div>
+        
+          <img class="ph-photo frame" src="imagenes/construcciondelogoabismo.png" alt="Abismo">
+          <div class="photo-caption">03 — Concept Development</div>
+        </div>
+      </div>
+      <div class="img-row-aside">
+        <div>
+        
+             <img class="ph-photo frame" src="imagenes/DSCN5579.jpg" alt="Abismo">
+          <div class="photo-caption">04 / Final Presentation</div>
+        </div>
+        <div>
+             <img class="ph-photo frame" src="imagenes/fotoabismouv.png" alt="Abismo">
+          <div class="photo-caption">05 / Bioluminescent Experience </div>
+        </div>
+      </div>
+
+    </section>
+
+    <footer class="project-footer-nav">
+      <a href="index.html#work" class="back-link">← View all projects </a> 
+      <a href="guacamolito.html" class="next-project-link">
+        <div class="label">Next Project</div>
+        <h3>Guacamolito →</h3>
+      </a>
+    </footer>
+
+  </div>
+ <footer class="footer">
+  <span>© 2026 Paulina Walz | All rights reserved.</span>
+  <a href="https://www.instagram.com/portfoliopwalz?igsh=MnhvOWR4dHEwazV2&utm_source=qr" target="_blank">INSTAGRAM ↗</a>
+</footer>
+</body>
+</html>

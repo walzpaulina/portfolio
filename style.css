@@ -1,0 +1,419 @@
+/* ===== Base ===== */
+:root {
+  --ink: #111111;
+  --accent: #C84E2F;
+  --bg: #FFFFFF;
+  --border: #eeeeee;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+}
+
+h1, h2, h3 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 800;
+  margin: 0;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ===== Layout general ===== */
+.page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 34px 40px 60px;
+  position: relative;
+}
+
+/* Líneas de grilla sutiles de fondo (opcional, decorativo) */
+.gridlines {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  pointer-events: none;
+  z-index: 0;
+}
+.gridlines div { border-left: 1px solid #f2f2f2; height: 100%; }
+
+/* ===== Nav ===== */
+.nav-strip {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  letter-spacing: .1em;
+  margin-bottom: 70px;
+}
+.nav-strip .brand {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: .02em;
+}
+.nav-strip .links { display: flex; gap: 22px; }
+.nav-strip .links a { opacity: .55; }
+.nav-strip .links a.active { opacity: 1; color: var(--accent); }
+.nav-strip .links a:hover { opacity: 1; }
+
+.contact-pill {
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 11px;
+  letter-spacing: .06em;
+}
+.contact-pill:hover { background: var(--ink); color: #fff; }
+
+/* ===== Botón de volver ===== */
+.back-link {
+  font-size: 11px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 26px;
+  display: inline-block;
+}
+
+.thumb {
+  position: relative;
+  overflow: hidden;
+  /* tus dimensiones de ancho y alto aquí */
+}
+
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Hace lo mismo que background-size: cover pero para etiquetas <img> */
+  object-position: center;
+transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1); 
+}
+
+/* 2. Qué pasa cuando el usuario pasa el mouse */
+.thumb:hover img {
+  transform: scale(1.05); /* Agranda la imagen un 5% */
+}
+.ph-photo.frame {
+  position: relative; /* Clave para posicionar el texto encima */
+  overflow: hidden;   /* Importante: para que la imagen recortada no se salga */
+}
+
+/* 2. LA SOLUCIÓN PARA LA IMAGEN (AQUÍ ESTÁ EL TRUCO) */
+.ph-photo.frame img {
+  width: 100%;    /* Obliga a la imagen a llenar el ancho */
+  height: 100%;   /* Obliga a la imagen a llenar el alto */
+  
+  /* ESTA ES LA LÍNEA MÁGICA: */
+  object-fit: cover; /* Escala la imagen para cubrir todo sin deformarla, recortando lo que sobre */
+  object-position: center; /* Centra el recorte (opcional) */
+}
+
+/* 3. TU CSS PARA EL TEXTO (Lo mantenemos, ya que está perfecto) */
+.ph-photo.frame .idx {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: white;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+/*ABOUT PAGE*/
+/* ===== SECTION: BIO (ABOUT) ===== */
+.spread { 
+  position: relative; 
+  z-index: 2; 
+  display: grid; 
+  grid-template-columns: 1fr 1fr; 
+  gap: 0; 
+  margin-bottom: 100px; 
+}
+
+/* 1. Ajustamos la altura de la columna de la foto (de 460px a 380px) */
+.spread .photo-col { 
+  position: relative; 
+  height: 380px; 
+}
+
+/* Agregamos overflow: hidden para que actúe como una máscara de recorte */
+.spread .photo-col .frame { 
+  position: absolute; 
+  inset: 0; 
+  border-radius: 1px; 
+  overflow: hidden; 
+}
+
+/* Forzamos a tu imagen de perfil a rellenar el contenedor sin deformarse */
+.spread .photo-col .frame .profile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center; /* Si te corta la cabeza, puedes cambiarlo por 'top' */
+}
+
+/* Aseguramos que el "P. 02" se mantenga visible por encima de la foto real */
+.spread .photo-col .idx { 
+  position: absolute; 
+  top: 16px; 
+  left: 16px; 
+  font-size: 11px; 
+  color: rgba(255,255,255,.9); 
+  mix-blend-mode: difference; 
+  z-index: 3; 
+}
+
+/* 2. Ajustamos la altura de la columna de texto (de 460px a 380px) */
+.spread .text-col { 
+  padding: 6px 0 0 46px; 
+  display: flex; 
+  flex-direction: column; 
+  justify-content: flex-start; 
+  height: 380px; 
+}
+
+.spread .label { 
+  font-size: 11px; 
+  letter-spacing: .1em; 
+  text-transform: uppercase; 
+  color: var(--accent); 
+  margin-bottom: 14px; 
+  font-weight: 600; 
+}
+
+.spread .bio p { 
+  font-size: 16px; 
+  line-height: 1.6; 
+  opacity: .9; 
+  max-width: 440px; 
+  margin: 0 0 16px; 
+  color: var(--ink); 
+}
+
+.spread .role { 
+  font-size: 11px; 
+  letter-spacing: .1em; 
+  text-transform: uppercase; 
+  opacity: .5; 
+  margin-top: 40px; 
+  padding-top: 20px; 
+  border-top: 1px solid var(--border); 
+}
+.services-label { position: relative; z-index: 2; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; font-weight: 600; }
+
+.services-grid { 
+  position: relative; 
+  z-index: 2; 
+  display: grid; 
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 0; 
+  margin-bottom: 80px; 
+}
+.s-card { 
+  border: 1px solid var(--border); 
+  padding: 40px; 
+  display: flex; 
+  flex-direction: column; 
+  justify-content: space-between; 
+  min-height: 240px; 
+  transition: all 0.3s ease; 
+  background: transparent; 
+}
+
+/* AJUSTE: Evita el doble borde interno (vertical y horizontal) al juntar las tarjetas */
+.services-grid .s-card:nth-child(even) { border-left: none; }
+.services-grid .s-card:nth-child(n+3) { border-top: none; }
+
+.s-card:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); transform: translateY(-4px); }
+.s-card .idx { font-family: 'Bricolage Grotesque', sans-serif; font-size: 32px; font-weight: 800; opacity: 0.2; transition: opacity 0.3s ease; }
+.s-card:hover .idx { opacity: 0.5; color: var(--accent); }
+.s-card .info h3 { font-family: 'Bricolage Grotesque', sans-serif; font-size: 28px; margin-bottom: 8px; }
+.s-card .info p { font-size: 15px; opacity: .7; margin: 0; line-height: 1.5; }
+
+.tools-list { position: relative; z-index: 2; display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 64px; }
+.tools-list span { font-size: 15px; border: 1px solid var(--ink); border-radius: 999px; padding: 12px 28px; background: transparent; transition: all 0.2s ease; font-weight: 500; }
+.tools-list span:hover { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+
+/* ===== SECTION: CV DATA ===== */
+.cv-footer-grid { 
+  position: relative; 
+  z-index: 2; 
+  display: grid; 
+  grid-template-columns: repeat(3, 1fr); 
+  /* AJUSTE: Quitamos el gap para que las 3 columnas se alineen con la grilla */
+  gap: 0; 
+  border-top: 1px solid var(--border); 
+  padding-top: 32px; 
+  margin-bottom: 80px; 
+}
+
+/* AJUSTE: Padding interno para que el texto de las columnas no se toque entre sí */
+.cv-footer-grid > div {
+  padding-right: 40px;
+  box-sizing: border-box;
+}
+.cv-footer-grid > div:last-child {
+  padding-right: 0;
+}
+
+.cv-cat { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; font-weight: 600; }
+.cv-item { font-size: 14px; opacity: .8; line-height: 1.6; }
+.cv-item b { display: block; color: var(--ink); margin-bottom: 4px; }
+
+/* ===== FOOTER CTA ===== */
+.cta { position: relative; z-index: 2; text-align: center; padding: 64px 0 32px; border-top: 1px solid var(--border); }
+.cta .lead { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; opacity: .5; margin-bottom: 16px; }
+.cta h2 { font-size: 48px; letter-spacing: -.02em; transition: color 0.3s ease; }
+.cta a { text-decoration: none; color: inherit; }
+.cta a:hover h2 { color: var(--accent); }
+.footer {
+  display: flex;
+  justify-content: center; /* Centra todo horizontalmente */
+  align-items: center;     /* Centra los elementos verticalmente */
+  gap: 24px;              /* Espaciado exacto entre el copyright y el link */
+  
+  padding: 40px 0;        /* Espacio arriba y abajo del footer */
+  width: 100%;
+  
+  /* Estilo tipográfico para que combine con el resto de tu web */
+  font-size: 11px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  opacity: .5;
+}
+
+.footer a {
+  color: inherit;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+/* Un sutil efecto hover para el link */
+.footer a:hover {
+  opacity: 1;
+}
+
+/* Asegura que en pantallas muy chicas no se rompa feo */
+@media (max-width: 480px) {
+  .footer {
+    flex-direction: column; /* Solo se apila en celulares si no hay espacio */
+    gap: 8px;
+    text-align: center;
+  }
+}
+
+
+/* ===== SECTION: PROJECT GALLERY (RITMO EDITORIAL) ===== */
+.project-gallery {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 80px; /* Separación elegante y aireada entre las filas de la galería */
+  margin-bottom: 100px;
+}
+
+/* Estilo unificado para los epígrafes */
+.photo-caption {
+  font-size: 11px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  opacity: .5;
+  margin-top: 12px;
+  line-height: 1.4;
+}
+
+/* --- FILA 1: Imagen Hero (Impacto controlado) --- */
+.project-gallery .img-full {
+  display: flex;
+  flex-direction: column;
+  height: 520px; /* Aquí limitamos la altura para que no sea infinita */
+  width: 100%;
+}
+.project-gallery .img-full img {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* --- FILA 2: Dos imágenes simétricas (50% y 50%) --- */
+.project-gallery .img-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px; /* Espaciado entre las dos columnas */
+}
+.project-gallery .img-row-2 > div {
+  display: flex;
+  flex-direction: column;
+  height: 380px; /* Altura más baja para las imágenes secundarias */
+}
+.project-gallery .img-row-2 .ph-photo {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* --- FILA 3: Fila asimétrica (Layout editorial avanzado) --- */
+.project-gallery .img-row-aside {
+  display: grid;
+  /* La primera columna es notablemente más ancha (1.4 veces) que la segunda */
+  grid-template-columns: 1.4fr 1fr; 
+  gap: 40px;
+}
+.project-gallery .img-row-aside > div {
+  display: flex;
+  flex-direction: column;
+  height: 420px; /* Altura intermedia para jugar con los pesos visuales */
+}
+.project-gallery .img-row-aside .ph-photo {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* --- FILA 2 CON TRES COLUMNAS (Formato Retrato) --- */
+.project-gallery .img-row-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Divide el espacio en 3 columnas exactamente iguales */
+  gap: 32px; /* Reducimos levemente el espacio entre columnas para que no apriete el texto */
+}
+
+.project-gallery .img-row-3 > div {
+  display: flex;
+  flex-direction: column;
+  height: 500px; /* Al dividir el ancho en 3, esta altura de 500px acentúa el formato vertical de revista */
+}
+
+.project-gallery .img-row-3 .ph-photo {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.project-gallery .img-row-aside .ph-photo {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  object-fit: cover; /* <-- Esto hace que el video se adapte igual que la foto */
+  object-position: center;
+}
+
+html {
+  scroll-behavior: smooth; /* Esto hace la magia del scroll elegante */
+}
+

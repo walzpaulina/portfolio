@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guacamolito — Paulina Walz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ===== Estilos particulares de la vista de Proyecto ===== */
+    
+    /* Encabezado del Proyecto (2 columnas) */
+    .project-header {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 40px;
+      margin-bottom: 56px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 40px;
+    }
+    .project-header h1 {
+      font-size: 64px;
+      line-height: 1;
+      letter-spacing: -.02em;
+    }
+    .project-meta {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    .meta-item .label {
+      font-size: 11px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .meta-item .val {
+      font-size: 13.5px;
+      opacity: .85;
+    }
+
+    /* Párrafo de Contexto Editorial */
+    .project-intro {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      margin-bottom: 72px;
+    }
+    .project-intro p {
+      font-size: 18px;
+      line-height: 1.6;
+      font-weight: 400;
+      opacity: .9;
+      color: var(--ink);
+    }
+
+    /* Grilla de Imágenes Ritmo Editorial */
+    .project-gallery {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 56px;
+      margin-bottom: 80px;
+    }
+
+    /* Fila de 2 fotos (Moodboard o detalles secundarios) */
+    .img-row-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .img-row-2 .frame {
+      height: 480px;
+    }
+
+    /* Foto única central gigante */
+    .img-full .frame {
+      height: 600px;
+      width: 100%;
+    }
+
+    /* Fila asimétrica (Estilo revista) */
+    .img-row-aside {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 24px;
+    }
+    .img-row-aside .frame-large {
+      height: 520px;
+    }
+    .img-row-aside .frame-small {
+      height: 520px;
+    }
+
+    /* Pie de imagen / Caption */
+    .photo-caption {
+      font-size: 11px;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      opacity: .5;
+      margin-top: 10px;
+    }
+
+    /* Navegación Inferior (Siguiente Proyecto) */
+    .project-footer-nav {
+      position: relative;
+      z-index: 2;
+      border-top: 1px solid var(--ink);
+      padding-top: 40px;
+      margin-top: 80px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .next-project-link {
+      text-align: right;
+    }
+    .next-project-link .label {
+      font-size: 11px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      opacity: .5;
+      margin-bottom: 4px;
+    }
+    .next-project-link h3 {
+      font-size: 28px;
+      transition: color 0.25s ease;
+    }
+    .next-project-link:hover h3 {
+      color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page">
+    <!-- Líneas de fondo del sistema de grilla -->
+    <div class="gridlines"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+
+    <!-- Navegación -->
+    <nav class="nav-strip">
+      <div class="brand">PAULINA WALZ</div>
+      <div class="links">
+        <a href="index.html">HOME</a>
+         <a href="index.html#work" class="back-link">WORK</a> 
+        <a href="about.html">ABOUT</a>
+      </div>
+      <a class="contact-pill" href="mailto:hola@paulinawalz.com">CONTACT ↗</a>
+    </nav>
+
+
+    <!-- Encabezado del Caso de Estudio -->
+    <header class="project-header">
+      <h1>Guacamolito</h1>
+      <div class="project-meta">
+        <div class="meta-item">
+          <div class="label">Proyect</div>
+          <div class="val">Brand Identity & Packaging</div>
+        </div>
+        <div class="meta-item">
+          <div class="label">Year</div>
+          <div class="val">2025</div>
+        </div>
+        <div class="meta-item">
+          <div class="label">Client</div>
+          <div class="val">Martina Walz (proyecto de tesis)</div>
+        </div>
+        <div class="meta-item">
+          <div class="label">Areas</div>
+          <div class="val">Brand Identity · Packaging Design · Art Direction</div>
+        </div>
+      </div>
+    </header>
+
+    <section class="project-intro">
+      <p>Guacamolito is a branding and packaging project developed for a dehydrated guacamole product. The visual identity was designed to communicate freshness, simplicity, and accessibility through organic graphic elements, a vibrant color palette, and a cohesive packaging system. The result is a flexible and distinctive brand experience that stands out within the food category.</p>
+    </section>
+
+    <section class="project-gallery">
+      
+      <div class="img-full">
+       <img class="ph-photo frame" src="imagenes/fotoportadaguacamolito.png" alt="Abismo">
+        <div class="photo-caption">01 / Product Photography</div>
+      </div>
+
+     
+<div class="img-row-3">
+  <div>
+    <img class="ph-photo frame" src="imagenes/guacamolitopackaging (1)-09.png" alt="Descripción 1">
+    <div class="photo-caption">02 / Packaging Design</div>
+  </div>
+  <div>
+    <img class="ph-photo frame" src="imagenes/guacamolitopackaging (1)-10.png" alt="Descripción 2">
+    <div class="photo-caption">03 / Packaging Design</div>
+  </div>
+  <div>
+    <img class="ph-photo frame" src="imagenes/imagen de marca guacamolito.jpg" alt="Descripción 3">
+    <div class="photo-caption">04 / Brand Identity</div>
+  </div>
+</div>
+<div class="img-row-aside">
+  
+  <div>
+    <video class="ph-photo frame-large" autoplay muted loop playsinline poster="imagenes/fotoportadaguacamolito.png">
+      <source src="imagenes/sitio web guacamolito .mp4" type="video/mp4">
+      Tu navegador no soporta este video.
+    </video>
+    <div class="photo-caption">05 / Website Design</div>
+  </div>
+
+  <div>
+    <img class="ph-photo frame-small" src="imagenes/fotobolsaguacamole.png" alt="Mockup">
+    <div class="photo-caption">06 / Social Media Campaign</div>
+  </div>
+
+</div>
+
+    </section>
+
+    <footer class="project-footer-nav">
+    <a href="index.html#work" class="back-link">← View all projects</a> 
+      <a href="refugio.html" class="next-project-link">
+        <div class="label">Next project</div>
+        <h3>Módulo TEU→</h3>
+      </a>
+    </footer>
+
+  </div>
+ <footer class="footer">
+  <span>© 2026 Paulina Walz | All rights reserved.</span>
+  <a href="https://www.instagram.com/portfoliopwalz?igsh=MnhvOWR4dHEwazV2&utm_source=qr" target="_blank">INSTAGRAM ↗</a>
+</footer>
+</body>
+</html>

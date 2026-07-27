@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paulina Walz — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .hero { position: relative; z-index: 2; display: grid; grid-template-columns: 1.5fr 1fr; gap: 40px; align-items: center; margin-top: 20px; }
+    .hero h1 { font-size: 96px; letter-spacing: -.02em; line-height: .92; }
+    .hero h1 .mark { color: var(--accent); font-weight: 400; font-size: .5em; vertical-align: top; }
+    .intro { margin-top: 26px; max-width: 340px; }
+    .intro .label { font-size: 11px; letter-spacing: .1em; color: var(--accent); margin-bottom: 8px; }
+    .intro p { font-size: 13px; line-height: 1.6; opacity: .75; margin: 0; }
+
+    .photo-col { position: relative; }
+    .photo-col .idx { font-size: 12px; letter-spacing: .04em; color: var(--accent); margin-bottom: 8px; text-align: right; }
+    .photo-col .frame { height: 340px; }
+
+    .scroll-cue { position: relative; z-index: 2; margin-top: 60px; font-size: 11px; letter-spacing: .06em; opacity: .4; }
+
+    .strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; margin-top: 70px; }
+    .strip .thumb { height: 150px; position: relative; }
+    .strip .thumb span { position: absolute; left: 12px; bottom: 10px; font-size: 11px; color: rgba(255,255,255,.85); }
+  </style>
+</head>
+<body>
+
+  <div class="page">
+    <div class="gridlines"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+
+    <nav class="nav-strip">
+      <div class="brand">PAULINA WALZ</div>
+      <div class="links">
+        <a href="index.html" class="active">HOME</a>
+       <a href="#work">WORK</a>
+        <a href="about.html">ABOUT</a>
+      </div>
+      <a class="contact-pill" href="mailto:hola@paulinawalz.com">CONTACT ↗</a>
+    </nav>
+
+    <div class="hero">
+      <div>
+        <h1>Paulina<br>Walz<span class="mark">©</span></h1>
+        <div class="intro">
+          <div class="label">[INTRO]</div>
+          <p>Designing across disciplines.<br>Building concepts into tangible experiences.</p>
+        </div>
+      </div>
+      <div class="photo-col">
+        <div class="idx">P. 01</div>
+        <img class="ph-photo frame" src="imagenes/fotoportfolio3.png" alt="Paulina Walz"> 
+      </div>
+    </div>
+
+    <div class="scroll-cue">Scroll para ver el trabajo ↓</div>
+<section id="work" class="project-gallery">
+ 
+    <div class="strip">
+      <a class="thumb ph-photo" href="flat.html">
+  <img src="imagenes/flatportfolio.png" alt="Industrial">
+  <span>Industrial Design — 01</span>
+</a>
+
+  <a class="thumb ph-photo" href="abismo.html">
+  <img src="imagenes/DSCN5634.jpg" alt="Industrial">
+  <span>Fashion Design — 02</span>
+</a>
+
+  <a class="thumb ph-photo" href="guacamolito.html">
+  <img src="imagenes/fotoguacamolito.png" alt="Industrial">
+  <span>Brand Identity — 03</span>
+</a>
+
+  <a class="thumb ph-photo" href="refugio.html">
+   <img src="imagenes/REFUGIO.png" alt="Industrial">
+  <span>Urban Design — 04</span>
+</a>
+</section>
+ </div>
+     
+  </div>
+   <footer class="footer">
+  <span>© 2026 Paulina Walz | All rights reserved.</span>
+  <a href="https://www.instagram.com/portfoliopwalz?igsh=MnhvOWR4dHEwazV2&utm_source=qr" target="_blank">INSTAGRAM ↗</a>
+</footer>
+
+</body>
+</html>

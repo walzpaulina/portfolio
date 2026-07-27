@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Selected work — Paulina Walz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .page-head { position: relative; z-index: 2; display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 32px; border-bottom: 1px solid var(--border); padding-bottom: 24px; }
+    .page-head h2 { font-size: 40px; letter-spacing: -.02em; }
+    .page-head .count { font-size: 11px; letter-spacing: .08em; opacity: .45; text-transform: uppercase; }
+
+    /* ===== Grilla Modular Funcional (4 columnas) ===== */
+    .work-cols { 
+      position: relative; 
+      z-index: 2; 
+      display: grid; 
+      grid-template-columns: repeat(4, 1fr); 
+      gap: 16px; /* Margen estrecho para que se vea como un sistema unificado */
+      margin-bottom: 40px;
+    }
+    
+    .w-col { display: block; text-decoration: none; }
+    
+    .w-col .frame { 
+      position: relative; 
+      overflow: hidden; 
+      background: #e0e0e0; 
+      border-radius: 1px;
+      /* Clave para que no haya que scrollear: alto relativo a la pantalla */
+      height: 55vh; 
+      min-height: 380px; 
+    }
+    
+    /* Elementos internos de la foto */
+    .w-col .frame .idx { position: absolute; top: 16px; left: 16px; font-size: 11px; color: rgba(255,255,255,.9); mix-blend-mode: difference; }
+    .w-col .frame .view { 
+      position: absolute; 
+      bottom: 16px; 
+      right: 16px; 
+      font-size: 11px; 
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      background: var(--ink);
+      color: var(--bg);
+      padding: 6px 12px;
+      border-radius: 999px;
+      opacity: 0; 
+      transform: translateY(10px); 
+      transition: opacity .3s ease, transform .3s ease; 
+    }
+    
+    /* Efectos Hover pulidos y elegantes */
+    .w-col:hover .frame .view { opacity: 1; transform: translateY(0); }
+    /* Un zoom muy sutil para dar la sensación de calidad premium */
+    .w-col:hover .frame { transform: scale(1.02); z-index: 10; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+    .frame { transition: transform .4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow .4s ease; }
+    
+    /* Tipografía del pie de foto */
+    .w-col .cap { margin-top: 16px; display: flex; flex-direction: column; gap: 4px; }
+    .w-col .cap .title { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 600; font-size: 18px; color: var(--ink); }
+    .w-col .cap .meta { font-size: 11px; letter-spacing: .05em; text-transform: uppercase; opacity: .5; }
+  </style>
+</head>
+<body>
+
+  <div class="page">
+    <div class="gridlines"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+
+    <nav class="nav-strip">
+      <div class="brand">PAULINA WALZ</div>
+      <div class="links">
+        <a href="index.html">HOME</a>
+        <a href="work.html" class="active">WORK</a>
+        <a href="about.html">ABOUT</a>
+      </div>
+      <a class="contact-pill" href="mailto:hola@paulinawalz.com">CONTACT ↗</a>
+    </nav>
+
+    <div class="page-head">
+      <h2>Selected work</h2>
+      <div class="count">04 proyectos (23—25)</div>
+    </div>
+
+    <!-- Grilla de 4 visible en el primer pantallazo -->
+    <div class="work-cols">
+      <a class="w-col" href="flat.html">
+        <div class="frame ph-photo" style="background:#8C917F;">
+          <span class="idx">01</span>
+          <span class="view">Ver proyecto</span>
+        </div>
+        <div class="cap">
+          <div class="title">Flat</div>
+          <div class="meta">Diseño Industrial</div>
+        </div>
+      </a>
+
+      <a class="w-col" href="abismo.html">
+        <div class="frame ph-photo" style="background:#B08B7A;">
+          <span class="idx">02</span>
+          <span class="view">Ver proyecto</span>
+        </div>
+        <div class="cap">
+          <div class="title">Abismo</div>
+          <div class="meta">Diseño de Indumentaria y Textil</div>
+        </div>
+      </a>
+
+      <a class="w-col" href="guacamolito.html">
+        <div class="frame ph-photo" style="background:#C7B8AE;">
+          <span class="idx">03</span>
+          <span class="view">Ver proyecto</span>
+        </div>
+        <div class="cap">
+          <div class="title">Guacamolito</div>
+          <div class="meta">Identidad Visual y pakcaging</div>
+        </div>
+      </a>
+
+      <a class="w-col" href="refugio.html">
+        <div class="frame ph-photo" style="background:#A9765F;">
+          <span class="idx">04</span>
+          <span class="view">Ver proyecto</span>
+        </div>
+        <div class="cap">
+          <div class="title">Casa Lumbre</div>
+          <div class="meta">Sistema Visual</div>
+        </div>
+      </a>
+    </div>
+  </div>
+ <footer class="footer">
+  <span>© 2026 Paulina Walz | All rights reserved.</span>
+  <a href="https://www.instagram.com/portfoliopwalz?igsh=MnhvOWR4dHEwazV2&utm_source=qr" target="_blank">INSTAGRAM ↗</a>
+</footer>
+</body>
+</html>
